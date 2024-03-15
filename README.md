@@ -1,4 +1,4 @@
-# RETO-2
+# RETO-3
 Reto 2 programación orientada a objetos
 
 ## Clase Linea
@@ -122,13 +122,89 @@ result = square.compute_interference_point(point_x, point_y)
 print(f"This is inside the square: {result}")
 
 ```
-##Class Rectangle con método 4:
+## Class Rectangle con método 4:
 En este caso vamos a encontrar el área de un rectangulo y su perimetro, pero le vamos a añadir otro método que es el 4: 
 
+``` python
+class Linea:
+
+  def __init__(self, length):
+    self.length = length
+
+
+class Rectangle:
+
+  def __init__(self, method):
+    self.method = method
+
+  def method1(self, blf_x, blf_y, width, height):
+    self.width = width
+    self.height = height
+    self.bl_x = blf_x
+    self.bl_y = blf_y
+
+  def method2(self, center_x, center_y, width, height):
+    self.center_x = center_x
+    self.center_y = center_y
+    self.width = width
+    self.height = height
+
+  def method3(self, bl_x, bl_y, ur_x, ur_y):
+    self.bl_x = bl_x
+    self.bl_y = bl_y
+    self.ur_x = ur_x
+    self.ur_y = ur_y
+
+  def method4(self, linea1, linea2, linea3, linea4):
+    self.linea1 = linea1
+    self.linea2 = linea2
+    self.linea3 = linea3
+    self.linea4 = linea4
+
+  def compute_area(self):
+    if self.method == 1:
+      return self.width * self.height
+    elif self.method == 2:
+      return (self.width * self.height) / 2
+    elif self.method == 3:
+      return (self.ur_x - self.bl_x) * (self.ur_y - self.bl_y)
+    elif self.method == 4:
+      if self.linea1.length == self.linea2.length and self.linea3.length == self.linea4.length:
+        return self.linea1.length * self.linea3.length
+    else:
+      return "Método no válido"
+
+  def compute_perimeter(self):
+    if self.method == 1:
+      return 2 * (self.width + self.height)
+    elif self.method == 2:
+      return 2 * self.width + 2 * self.height
+    elif self.method == 3:
+      return 2 * (self.ur_x - self.bl_x) + 2 * (self.ur_y - self.bl_y)
+    elif self.method == 4:
+      if self.linea1.length == self.linea2.length and self.linea3.length == self.linea4.length:
+        return 2 * (self.linea1.length + self.linea3.length)
+    else:
+      return "Método no válido"
+
+
+#In this part, the user will be able to choose the method of the rectangle and the point where the user wants to check. Only if 2 lines are equals.
+
+linea1 = Linea(5)
+linea2 = Linea(5)
+linea3 = Linea(15)
+linea4 = Linea(15)
+
+rectangline = Rectangle(4)
+rectangline.method4(linea1, linea2, linea3, linea4)
+print(rectangline.compute_area())
+print(rectangline.compute_perimeter())
+ ```
 
 
 
-Class Restaurante:
+
+## Class Restaurante:
 
 Diagrama: 
 ## ![Untitled diagram-2024-03-15-004553](https://github.com/59822/RETO-2/assets/153324848/d3395bb3-36b0-4d4e-9714-556f8d174efb)
